@@ -1,0 +1,409 @@
+:root {
+  --night: #0b1a33;
+  --night-light: #1d3a63;
+  --snow: #f7fbff;
+  --snow-shade: #d6e3f0;
+  --cress: #5fbf3f;
+  --cress-dark: #3c8f28;
+  --accent: #c8323c;
+  --carrot: #f08a24;
+  --text: #f2f6fb;
+  --text-muted: #c3d2e4;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.6;
+  color: var(--text);
+  background: linear-gradient(180deg, var(--night) 0%, var(--night-light) 70%, #3d5f8a 100%) fixed;
+}
+
+h1, h2, h3 { line-height: 1.2; }
+
+/* ---------- Schneefall ---------- */
+
+.snow {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Kachel-Größe = Fallstrecke einer Animationsrunde, damit die Schleife nahtlos ist */
+.snow__layer {
+  position: absolute;
+  inset: -40px;
+  background-repeat: repeat;
+  animation: snowfall linear infinite, drift ease-in-out infinite alternate;
+}
+
+.snow__layer--far {
+  --tile: 180px;
+  opacity: .5;
+  background-size: var(--tile) var(--tile);
+  background-image:
+    radial-gradient(circle at 20px 30px, #fff 1px, transparent 2px),
+    radial-gradient(circle at 90px 110px, #fff 1px, transparent 2px),
+    radial-gradient(circle at 150px 60px, #fff 1px, transparent 2px),
+    radial-gradient(circle at 60px 160px, #fff 1px, transparent 2px);
+  animation-duration: 22s, 6s;
+}
+
+.snow__layer--mid {
+  --tile: 260px;
+  opacity: .7;
+  background-size: var(--tile) var(--tile);
+  background-image:
+    radial-gradient(circle at 40px 50px, #fff 2px, transparent 3px),
+    radial-gradient(circle at 180px 20px, #fff 2px, transparent 3px),
+    radial-gradient(circle at 120px 190px, #fff 2px, transparent 3px),
+    radial-gradient(circle at 230px 140px, #fff 2px, transparent 3px);
+  animation-duration: 16s, 5s;
+}
+
+.snow__layer--near {
+  --tile: 380px;
+  opacity: .9;
+  filter: blur(1px);
+  background-size: var(--tile) var(--tile);
+  background-image:
+    radial-gradient(circle at 70px 90px, #fff 3px, transparent 4px),
+    radial-gradient(circle at 290px 220px, #fff 4px, transparent 5px),
+    radial-gradient(circle at 180px 330px, #fff 3px, transparent 4px);
+  animation-duration: 11s, 4s;
+}
+
+@keyframes snowfall {
+  from { background-position: 0 0; }
+  to { background-position: 0 var(--tile); }
+}
+
+@keyframes drift {
+  from { translate: -20px 0; }
+  to { translate: 20px 0; }
+}
+
+/* ---------- Hero ---------- */
+
+.hero {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 4rem 1.5rem 1rem;
+  text-align: center;
+}
+
+.hero__door {
+  display: inline-grid;
+  place-items: center;
+  width: 7rem;
+  height: 7rem;
+  margin: 0 0 1rem;
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: var(--snow);
+  background: var(--accent);
+  border: 4px dashed var(--snow);
+  border-radius: 1rem;
+  box-shadow: 0 0 0 6px var(--accent), 0 10px 30px rgba(0, 0, 0, .4);
+  rotate: -4deg;
+}
+
+.hero__date {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: .2em;
+  color: var(--text-muted);
+}
+
+.hero h1 {
+  margin: .25rem 0 1rem;
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  text-shadow: 0 2px 12px rgba(255, 255, 255, .25);
+}
+
+.hero__intro {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+}
+
+/* ---------- Szene: Schneewiese, Schneemänner, Kresse ---------- */
+
+.scene {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: clamp(1rem, 6vw, 5rem);
+  height: 300px;
+  margin-top: 1rem;
+  padding-bottom: 30px;
+}
+
+/* Schneehügel */
+.scene::before {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  height: 70px;
+  background: var(--snow);
+  border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+  box-shadow: inset 0 10px 20px var(--snow-shade);
+}
+
+.snowman {
+  position: relative;
+  width: 120px;
+  height: 240px;
+  transform-origin: bottom center;
+  animation: wobble 4s ease-in-out infinite alternate;
+}
+
+.snowman--right {
+  animation-delay: -2s;
+  scale: .85;
+}
+
+.snowman__ball {
+  position: absolute;
+  left: 50%;
+  translate: -50% 0;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #fff, var(--snow-shade));
+  box-shadow: inset -6px -8px 14px rgba(0, 40, 90, .18);
+}
+
+.snowman__ball--bottom { bottom: 0; width: 120px; height: 110px; }
+.snowman__ball--middle { bottom: 92px; width: 88px; height: 80px; }
+.snowman__ball--head { bottom: 160px; width: 64px; height: 60px; }
+
+/* Knöpfe */
+.snowman__ball--middle::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 22px;
+  width: 8px;
+  height: 8px;
+  margin-left: -4px;
+  border-radius: 50%;
+  background: #222;
+  box-shadow: 0 16px 0 #222, 0 32px 0 #222;
+}
+
+/* Augen */
+.snowman__ball--head::before {
+  content: "";
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #222;
+  box-shadow: 18px 0 0 #222;
+}
+
+/* Möhrennase */
+.snowman__ball--head::after {
+  content: "";
+  position: absolute;
+  left: 30px;
+  top: 30px;
+  border-style: solid;
+  border-width: 4px 0 4px 20px;
+  border-color: transparent transparent transparent var(--carrot);
+}
+
+.snowman__scarf {
+  position: absolute;
+  left: 50%;
+  bottom: 158px;
+  width: 70px;
+  height: 12px;
+  translate: -50% 0;
+  border-radius: 6px;
+  background: repeating-linear-gradient(90deg, var(--accent) 0 10px, #fff 10px 14px);
+}
+
+.snowman__scarf::after {
+  content: "";
+  position: absolute;
+  right: 10px;
+  top: 8px;
+  width: 12px;
+  height: 30px;
+  border-radius: 0 0 4px 4px;
+  background: var(--accent);
+  rotate: -10deg;
+}
+
+.snowman__hat {
+  position: absolute;
+  left: 50%;
+  bottom: 212px;
+  width: 40px;
+  height: 30px;
+  translate: -50% 0;
+  background: #1b1b1b;
+  border-radius: 3px 3px 0 0;
+}
+
+.snowman__hat::after {
+  content: "";
+  position: absolute;
+  left: -10px;
+  bottom: -4px;
+  width: 60px;
+  height: 6px;
+  border-radius: 3px;
+  background: #1b1b1b;
+}
+
+@keyframes wobble {
+  from { rotate: -3deg; }
+  to { rotate: 3deg; }
+}
+
+/* Kresse */
+.cress {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 1;
+}
+
+.cress__sprouts {
+  display: flex;
+  align-items: flex-end;
+  gap: 6px;
+  height: 110px;
+  margin-bottom: -6px;
+}
+
+.sprout {
+  position: relative;
+  width: 3px;
+  height: var(--h);
+  border-radius: 2px;
+  background: linear-gradient(var(--cress), #b8e6a3);
+  transform-origin: bottom center;
+  /* scale wächst, rotate wiegt – getrennte Properties, damit sich beide Animationen nicht überschreiben */
+  animation:
+    grow 2.4s cubic-bezier(.3, 1.4, .5, 1) calc(var(--i) * .25s) both,
+    sway 3s ease-in-out calc(2.4s + var(--i) * .25s) infinite alternate;
+}
+
+/* Keimblätter */
+.sprout::before,
+.sprout::after {
+  content: "";
+  position: absolute;
+  top: -4px;
+  width: 14px;
+  height: 9px;
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  background: var(--cress);
+  box-shadow: inset -2px -2px 0 var(--cress-dark);
+}
+
+.sprout::before { right: 1px; rotate: 25deg; transform-origin: right bottom; }
+.sprout::after { left: 1px; rotate: -25deg; transform-origin: left bottom; }
+
+.cress__bowl {
+  width: 170px;
+  height: 56px;
+  border-radius: 8px 8px 80px 80px;
+  background: linear-gradient(180deg, #e8eef5, #b9c8d8);
+  border-top: 10px solid #fff;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, .3);
+}
+
+@keyframes grow {
+  from { scale: 1 0; }
+  to { scale: 1 1; }
+}
+
+@keyframes sway {
+  from { rotate: -4deg; }
+  to { rotate: 4deg; }
+}
+
+/* ---------- Inhalte ---------- */
+
+main {
+  max-width: 68rem;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+}
+
+.steps h2 {
+  text-align: center;
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+}
+
+.steps__list,
+.tips {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  padding: 0;
+  list-style: none;
+}
+
+.tips { margin-top: 3rem; }
+
+.card {
+  padding: 1.25rem;
+  border: 1px solid rgba(255, 255, 255, .25);
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, .1);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, .25);
+  transition: translate .25s, box-shadow .25s;
+}
+
+.card:hover {
+  translate: 0 -4px;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, .35);
+}
+
+.card h2,
+.card h3 { margin: .75rem 0 .5rem; color: var(--snow); }
+.card h3 { color: #a8e48c; }
+.card p { margin: 0; color: var(--text-muted); }
+
+.placeholder {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 4 / 3;
+  margin: 0;
+  border: 2px dashed rgba(255, 255, 255, .4);
+  border-radius: .75rem;
+  background: rgba(95, 191, 63, .12);
+  color: var(--text-muted);
+  font-size: .9rem;
+  text-align: center;
+}
+
+.footer {
+  padding: 2rem 1.5rem 3rem;
+  text-align: center;
+  color: var(--text-muted);
+}
+
+/* ---------- Barrierefreiheit ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "name": "adventskalender-2026-tuer15",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test \"tests/**/*.test.mjs\""
+  }
+}
