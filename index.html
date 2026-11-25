@@ -13,91 +13,138 @@
     <div class="snow__layer snow__layer--near"></div>
   </div>
 
-  <header class="hero">
-    <p class="hero__door">15</p>
-    <p class="hero__date">15. Dezember</p>
-    <h1>Deine Kresse-Tür</h1>
-    <p class="hero__intro">Draußen liegt Schnee, drinnen wächst es grün. Hinter dieser Tür steckt ein kleines Kresse-Anzuchtset. Hier erfährst du, wie aus winzigen Samen in wenigen Tagen frisches Grün wird.</p>
-  </header>
-
-  <section class="scene" aria-label="Winterlandschaft mit wachsender Kresse">
-    <div class="snowman snowman--left" aria-hidden="true">
-      <span class="snowman__ball snowman__ball--bottom"></span>
-      <span class="snowman__ball snowman__ball--middle"></span>
-      <span class="snowman__ball snowman__ball--head"></span>
-      <span class="snowman__scarf"></span>
-      <span class="snowman__hat"></span>
+  <div class="letter">
+    <div class="decor" aria-hidden="true">
+      <svg width="0" height="0">
+        <symbol id="holly" viewBox="0 0 140 132">
+          <path fill="#6f9b64" d="M48 40 Q58 36 62 26 Q71 34 80 22 Q89 32 98 20 Q107 30 116 22 Q122 32 136 36 Q122 42 116 52 Q107 44 98 56 Q89 46 80 56 Q71 48 62 52 Q58 44 48 40Z"/>
+          <path fill="#2f5f3a" d="M40 48 Q36 58 28 62 Q36 71 25 80 Q35 89 25 98 Q35 106 30 114 Q38 120 44 128 Q50 120 58 114 Q53 106 63 98 Q53 89 63 80 Q52 71 58 62 Q48 58 40 48Z"/>
+          <g fill="none" stroke="#fff" stroke-opacity=".45" stroke-width="1.5">
+            <path d="M50 39 L132 36"/>
+            <path d="M41 52 L44 124"/>
+          </g>
+          <g fill="#b3262f">
+            <circle cx="22" cy="30" r="10"/>
+            <circle cx="42" cy="24" r="10"/>
+            <circle cx="32" cy="44" r="10"/>
+          </g>
+          <g fill="#fff" fill-opacity=".6">
+            <circle cx="19" cy="27" r="2.5"/>
+            <circle cx="39" cy="21" r="2.5"/>
+            <circle cx="29" cy="41" r="2.5"/>
+          </g>
+        </symbol>
+      </svg>
+      <svg class="holly holly--top"><use href="#holly"/></svg>
+      <svg class="holly holly--bottom"><use href="#holly"/></svg>
+      <span class="star star--big">★</span>
+      <span class="star star--small">★</span>
+      <span class="star star--corner">★</span>
+      <span class="flake flake--top">❄</span>
+      <span class="flake flake--bottom">❄</span>
     </div>
 
-    <div class="cress" role="img" aria-label="Kresse wächst in einer Schale">
-      <div class="cress__sprouts">
-        <span class="sprout" style="--i:0;--h:62px"></span>
-        <span class="sprout" style="--i:3;--h:78px"></span>
-        <span class="sprout" style="--i:6;--h:70px"></span>
-        <span class="sprout" style="--i:1;--h:88px"></span>
-        <span class="sprout" style="--i:8;--h:74px"></span>
-        <span class="sprout" style="--i:4;--h:92px"></span>
-        <span class="sprout" style="--i:10;--h:80px"></span>
-        <span class="sprout" style="--i:2;--h:86px"></span>
-        <span class="sprout" style="--i:7;--h:72px"></span>
-        <span class="sprout" style="--i:11;--h:84px"></span>
-        <span class="sprout" style="--i:5;--h:68px"></span>
-        <span class="sprout" style="--i:9;--h:60px"></span>
-      </div>
-      <div class="cress__bowl"></div>
-    </div>
+    <header class="hero">
+      <p class="hero__door">15</p>
+      <p class="hero__date">15. Dezember</p>
+      <h1>Platzhalter für den Titel der Tür</h1>
+      <div class="divider" aria-hidden="true"><span>★</span></div>
+      <p class="hero__intro">Lorem ipsum – dolor sit amet consetetur.</p>
+    </header>
 
-    <div class="snowman snowman--right" aria-hidden="true">
-      <span class="snowman__ball snowman__ball--bottom"></span>
-      <span class="snowman__ball snowman__ball--middle"></span>
-      <span class="snowman__ball snowman__ball--head"></span>
-      <span class="snowman__scarf"></span>
-      <span class="snowman__hat"></span>
-    </div>
-  </section>
+    <main>
+      <section class="message">
+        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat. Sed diam voluptua at vero eos et accusam et justo duo dolores et ea rebum.</p>
+        <p>Stet clita kasd gubergren, no sea takimata sanctus est lorem ipsum dolor sit amet. Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore.</p>
+        <p>At vero eos et accusam et justo duo dolores: <em>lorem ipsum</em>! Stet clita kasd gubergren, no sea takimata sanctus est lorem ipsum dolor sit amet.</p>
 
-  <main>
-    <section class="steps">
-      <h2>So wächst deine Kresse</h2>
-      <ol class="steps__list">
-        <li class="card">
-          <figure class="placeholder"><span>Bild: Samen aussäen</span></figure>
-          <h3>1. Säen</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Verteile die Samen gleichmäßig auf dem feuchten Vlies.</p>
-        </li>
-        <li class="card">
-          <figure class="placeholder"><span>Bild: Gießen</span></figure>
-          <h3>2. Gießen</h3>
-          <p>Sed do eiusmod tempor incididunt ut labore. Halte die Unterlage immer leicht feucht, aber nicht nass.</p>
-        </li>
-        <li class="card">
-          <figure class="placeholder"><span>Bild: Keimlinge</span></figure>
-          <h3>3. Warten</h3>
-          <p>Ut enim ad minim veniam, quis nostrud. Nach ein bis zwei Tagen zeigen sich die ersten Keimlinge.</p>
-        </li>
-        <li class="card">
-          <figure class="placeholder"><span>Bild: Ernte</span></figure>
-          <h3>4. Ernten</h3>
-          <p>Duis aute irure dolor in reprehenderit. Nach etwa einer Woche kannst du die Kresse mit der Schere ernten.</p>
-        </li>
-      </ol>
-    </section>
+        <section class="scene" aria-label="Winterlandschaft mit wachsender Kresse">
+          <div class="snowman snowman--left" aria-hidden="true">
+            <span class="snowman__ball snowman__ball--bottom"></span>
+            <span class="snowman__ball snowman__ball--middle"></span>
+            <span class="snowman__ball snowman__ball--head"></span>
+            <span class="snowman__scarf"></span>
+            <span class="snowman__hat"></span>
+          </div>
 
-    <section class="tips">
-      <article class="card">
-        <h2>Wusstest du schon?</h2>
-        <p>Lorem ipsum dolor sit amet. Kresse gehört zu den am schnellsten keimenden Pflanzen und braucht keine Erde.</p>
-      </article>
-      <article class="card">
-        <h2>Rezeptidee</h2>
-        <figure class="placeholder"><span>Bild: Kresse-Brot</span></figure>
-        <p>Consectetur adipiscing elit. Hier folgt bald ein Rezept mit deiner frisch geernteten Kresse.</p>
-      </article>
-    </section>
-  </main>
+          <div class="cress" role="img" aria-label="Kresse wächst in einer Schale">
+            <div class="cress__sprouts">
+              <span class="sprout" style="--i:0;--h:62px"></span>
+              <span class="sprout" style="--i:3;--h:78px"></span>
+              <span class="sprout" style="--i:6;--h:70px"></span>
+              <span class="sprout" style="--i:1;--h:88px"></span>
+              <span class="sprout" style="--i:8;--h:74px"></span>
+              <span class="sprout" style="--i:4;--h:92px"></span>
+              <span class="sprout" style="--i:10;--h:80px"></span>
+              <span class="sprout" style="--i:2;--h:86px"></span>
+              <span class="sprout" style="--i:7;--h:72px"></span>
+              <span class="sprout" style="--i:11;--h:84px"></span>
+              <span class="sprout" style="--i:5;--h:68px"></span>
+              <span class="sprout" style="--i:9;--h:60px"></span>
+            </div>
+            <div class="cress__bowl"></div>
+          </div>
 
-  <footer class="footer">
-    <p>Frohe Adventszeit! Morgen öffnet sich die nächste Tür.</p>
-  </footer>
+          <div class="snowman snowman--right" aria-hidden="true">
+            <span class="snowman__ball snowman__ball--bottom"></span>
+            <span class="snowman__ball snowman__ball--middle"></span>
+            <span class="snowman__ball snowman__ball--head"></span>
+            <span class="snowman__scarf"></span>
+            <span class="snowman__hat"></span>
+          </div>
+        </section>
+
+        <p>Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
+        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor.</p>
+
+        <p class="message__closing">Lorem ipsum dolor sit amet, consetetur sadipscing elitr</p>
+        <p class="message__signature">Sascha</p>
+      </section>
+
+      <div class="divider" aria-hidden="true"><span>★</span></div>
+
+      <section class="steps">
+        <h2>So wächst deine Kresse</h2>
+        <ol class="steps__list">
+          <li class="card">
+            <figure class="placeholder"><span>Bild: Samen aussäen</span></figure>
+            <h3>1. Säen</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </li>
+          <li class="card">
+            <figure class="placeholder"><span>Bild: Gießen</span></figure>
+            <h3>2. Gießen</h3>
+            <p>Sed do eiusmod tempor incididunt ut labore et dolore.</p>
+          </li>
+          <li class="card">
+            <figure class="placeholder"><span>Bild: Keimlinge</span></figure>
+            <h3>3. Warten</h3>
+            <p>Ut enim ad minim veniam, quis nostrud exercitation.</p>
+          </li>
+          <li class="card">
+            <figure class="placeholder"><span>Bild: Ernte</span></figure>
+            <h3>4. Ernten</h3>
+            <p>Duis aute irure dolor in reprehenderit in voluptate.</p>
+          </li>
+        </ol>
+      </section>
+
+      <section class="tips">
+        <article class="card">
+          <h2>Wusstest du schon?</h2>
+          <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor.</p>
+        </article>
+        <article class="card">
+          <h2>Rezeptidee</h2>
+          <figure class="placeholder"><span>Bild: Rezept</span></figure>
+          <p>Consectetur adipiscing elit, sed do eiusmod tempor.</p>
+        </article>
+      </section>
+
+      <section class="ps">
+        <p><strong>PS:</strong> Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat.</p>
+      </section>
+    </main>
+  </div>
 </body>
 </html>
